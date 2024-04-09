@@ -1,11 +1,11 @@
-# Wizard Syncer
+# School Syncer
 
 ### Installing
 
 ```bash
 cd path/to/project
 python3 -m venv ./venv
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 ### Running
