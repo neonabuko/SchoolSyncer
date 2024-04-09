@@ -1,27 +1,14 @@
 from typing import Any, Dict
 import requests
-
-from terminal import Color
+from messages import Messages
 
 API_URL = "http://100.102.72.128:5170/"
-
-
-class Messages:
-    @staticmethod
-    def ok(name):
-        print(Color.OKGREEN + "+ Added \"" + name + "\"" + Color.ENDC)
-
-
-    @staticmethod
-    def conflict(name):
-        print(Color.WARNING + "! \"" + name + "\" already present." + Color.ENDC)
-    
 
 status_outputs = Messages()
 
 
 def handle_post(route: str, post_data: Dict[str, Any], query_param: Dict[str, str]):
-    entity_name = query_param.get('name', query_param.get('lesson', None))
+    entity_name = query_param.get('name')
     post_response = requests.post(API_URL + route, json=post_data)
     
     if post_response.status_code == 200: 

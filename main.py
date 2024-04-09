@@ -43,7 +43,7 @@ def main():
                 "dateTime": interactive_group_date_time,
                 "teacherId": teacher['id']
                 }
-            interactive_group = handle_post("interactive-groups", interactive_group_data, {"name": interactive_group_name})
+            interactive_group = handle_post("groups", interactive_group_data, {"name": interactive_group_name})
 
         if row[6:7] and interactive_group is not None:
             student = None
@@ -59,11 +59,11 @@ def main():
             if row[11:12] and student is not None:
                 lesson_name = row[11:12][0]
                 lesson_data = {
-                    "lesson": lesson_name, 
+                    "name": lesson_name, 
                     "dateTime": interactive_group_date_time, 
                     "studentId": student['id']
                     }
-                handle_post("interactive-classes", lesson_data, {"lesson": lesson_name})
+                handle_post("lessons", lesson_data, {"name": lesson_name})
     
 if __name__ == "__main__":
     main()
