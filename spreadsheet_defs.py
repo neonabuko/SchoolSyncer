@@ -23,6 +23,7 @@ def get_spreadsheet_rows(sheets_service, spreadsheet_id: str, PAGE_NAME: str) ->
 
 def handle(drive_service, sheets_service, spreadsheet_name:str) -> List[List[str]]:
     spreadsheet_file = find_spreadsheet_file_by_name(drive_service, spreadsheet_name)
-    if len(spreadsheet_file['files']) == 0: raise Exception(f"Spreadsheet '{spreadsheet_name}' not found.")
+    if len(spreadsheet_file['files']) == 0: 
+        raise Exception(f"Spreadsheet '{spreadsheet_name}' not found.")
     return get_spreadsheet_rows(sheets_service, spreadsheet_file['files'][0]['id'], PAGE_NAME)
 

@@ -64,7 +64,8 @@ def main():
                     "studentId": student['id']
                     }
                 handle_post("lessons", lesson_data, {"name": lesson_name})
-    
+
+
 if __name__ == "__main__":
     main()
     
